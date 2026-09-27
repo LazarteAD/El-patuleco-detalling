@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Car Detailing El Patuleco | San Cayetano 2518, Del Viso, Pilar</title>
+<meta name="description" content="Car Detailing El Patuleco - Lavado, estética, protección y performance para tu auto. Armá tu presupuesto y reservá por WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#050b14; --bg-soft:#0a1524; --panel:#0d1c30; --panel-line:rgba(80,190,255,0.22);
+    --ink:#eef6ff; --ink-dim:#91a8c4; --blue:#29b6f6; --blue-bright:#6fe0ff; --white:#ffffff;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  body{
+    background:var(--bg); color:var(--ink); font-family:'Inter',system-ui,sans-serif;
+    line-height:1.55; overflow-x:hidden;
+    background-image:
+      radial-gradient(ellipse 700px 400px at 15% -5%, rgba(41,182,246,0.16), transparent 60%),
+      radial-gradient(ellipse 700px 500px at 100% 10%, rgba(41,182,246,0.12), transparent 60%);
+  }
+  h1,h2,h3,.brand-word,.price,.nav a{ font-family:'Oswald','Inter',sans-serif; }
+  a{ color:inherit; text-decoration:none; }
+  img{ max-width:100%; display:block; }
+  .wrap{ max-width:1180px; margin:0 auto; padding:0 24px; }
+  ::selection{ background:var(--blue); color:#03141d; }
+
+  /* ---------- Header ---------- */
+  header{ position:sticky; top:0; z-index:60; background:rgba(5,11,20,0.88); backdrop-filter:blur(10px); border-bottom:1px solid var(--panel-line); }
+  .nav-row{ display:flex; align-items:center; justify-content:space-between; padding:10px 24px; max-width:1180px; margin:0 auto; }
+  .brand{ display:flex; align-items:center; gap:12px; }
+  .brand img{ height:54px; width:auto; border-radius:8px; }
+  .brand-word{ font-size:0.78rem; letter-spacing:0.03em; color:var(--ink-dim); line-height:1.2; }
+  .brand-word b{ display:block; color:var(--blue-bright); font-size:1.05rem; }
+  .nav{ display:flex; align-items:center; gap:26px; }
+  .nav a{ font-size:0.9rem; color:var(--ink-dim); transition:color .2s; }
+  .nav a:hover{ color:var(--blue-bright); }
+  .nav .cta-small{ background:var(--blue); color:#04202d; padding:9px 18px; border-radius:3px; font-weight:600; font-size:0.86rem; }
+  .menu-btn{ display:none; background:none; border:1px solid var(--panel-line); color:var(--ink); padding:8px 12px; border-radius:4px; font-size:1.1rem; }
+
+  /* ---------- Hero ---------- */
+  .hero{ padding:56px 0 50px; border-bottom:1px solid var(--panel-line); position:relative; }
+  .hero-grid{ display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; }
+  .kicker{ color:var(--blue-bright); font-size:0.95rem; font-weight:500; max-width:340px; line-height:1.5; margin-bottom:20px; border-left:2px solid var(--blue); padding-left:14px; }
+  .hero h1{ font-size:clamp(2.4rem,5.6vw,3.8rem); line-height:1.03; color:var(--white); text-transform:uppercase; }
+  .hero h1 span{ display:block; color:var(--blue-bright); text-shadow:0 0 26px rgba(111,224,255,0.45); }
+  .hero-sub{ margin-top:18px; color:var(--ink-dim); max-width:460px; }
+  .hero-tags{ margin-top:14px; color:var(--blue); font-size:0.85rem; letter-spacing:0.12em; font-weight:500; }
+  .hero-ctas{ margin-top:28px; display:flex; gap:14px; flex-wrap:wrap; }
+  .btn-primary{ background:linear-gradient(135deg,var(--blue-bright),var(--blue)); color:#03202e; padding:14px 24px; border-radius:4px; font-weight:600; font-size:0.94rem; display:inline-flex; align-items:center; gap:10px; box-shadow:0 8px 30px rgba(41,182,246,0.25); border:none; cursor:pointer; }
+  .btn-ghost{ border:1px solid var(--panel-line); color:var(--ink); padding:14px 24px; border-radius:4px; font-weight:500; font-size:0.94rem; background:none; cursor:pointer; }
+  .hero-visual{ position:relative; border-radius:10px; overflow:hidden; border:1px solid var(--panel-line); }
+  .hero-visual::after{ content:""; position:absolute; inset:0; box-shadow:inset 0 0 60px rgba(0,0,0,0.5); pointer-events:none; }
+  .hero-visual img{ width:100%; transition:transform .5s ease; }
+  .hero-visual:hover img{ transform:scale(1.04); }
+
+  /* ---------- Features strip ---------- */
+  .strip{ border-bottom:1px solid var(--panel-line); background:var(--bg-soft); }
+  .strip-row{ display:grid; grid-template-columns:repeat(4,1fr); padding:22px 0; }
+  .strip-item{ display:flex; align-items:center; gap:10px; justify-content:center; border-left:1px solid var(--panel-line); padding:6px 14px; font-size:0.9rem; color:var(--ink-dim); font-weight:500; }
+  .strip-item:first-child{ border-left:none; }
+  .strip-item b{ color:var(--ink); font-weight:600; }
+
+  /* ---------- Services ---------- */
+  .section{ padding:70px 0; }
+  .section-head{ margin-bottom:36px; max-width:600px; display:flex; justify-content:space-between; align-items:flex-end; gap:20px; flex-wrap:wrap; }
+  .section-head .eyebrow{ color:var(--blue); font-size:0.85rem; letter-spacing:0.08em; }
+  .section-head h2{ font-size:clamp(1.8rem,3.6vw,2.4rem); color:var(--white); margin-top:6px; text-transform:uppercase; }
+  .section-head p{ color:var(--ink-dim); margin-top:10px; }
+  .hint{ font-size:0.85rem; color:var(--ink-dim); background:var(--panel); border:1px solid var(--panel-line); padding:10px 16px; border-radius:6px; max-width:280px; }
+  .hint b{ color:var(--blue-bright); }
+
+  .cards{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+  .cards-3{ grid-template-columns:repeat(3,1fr); margin-top:18px; }
+
+  .card{
+    position:relative; background:var(--panel); border:2px solid var(--panel-line); border-radius:10px;
+    overflow:hidden; cursor:pointer; transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .card img{ width:100%; display:block; pointer-events:none; }
+  .card:hover{ transform:translateY(-6px); border-color:var(--blue); box-shadow:0 14px 34px rgba(41,182,246,0.22); }
+  .card.selected{ border-color:var(--blue-bright); box-shadow:0 0 0 3px rgba(111,224,255,0.25), 0 14px 34px rgba(41,182,246,0.32); }
+  .card-check{
+    position:absolute; top:10px; right:10px; width:30px; height:30px; border-radius:50%;
+    background:rgba(5,11,20,0.75); border:1.5px solid var(--blue-bright); color:var(--blue-bright);
+    display:flex; align-items:center; justify-content:center; font-size:0.9rem; font-weight:700;
+    transition:background .2s, color .2s, transform .2s;
+  }
+  .card.selected .card-check{ background:var(--blue-bright); color:#03202e; transform:scale(1.08); }
+  .card-check svg{ opacity:0; transition:opacity .15s; }
+  .card.selected .card-check svg{ opacity:1; }
+  .card-tap{
+    position:absolute; left:0; right:0; bottom:0; padding:9px 12px; font-size:0.78rem;
+    color:var(--blue-bright); background:linear-gradient(0deg, rgba(5,11,20,0.92), transparent);
+    text-align:center; letter-spacing:0.04em; font-weight:600;
+  }
+
+  /* ---------- Quote bar ---------- */
+  .quote-bar{
+    position:sticky; bottom:16px; z-index:55; margin-top:34px;
+    background:rgba(10,21,36,0.92); backdrop-filter:blur(12px);
+    border:1px solid var(--blue); border-radius:10px;
+    padding:16px 22px; display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
+    box-shadow:0 12px 40px rgba(0,0,0,0.5);
+    transform:translateY(140%); opacity:0; transition:transform .3s ease, opacity .3s ease;
+  }
+  .quote-bar.show{ transform:translateY(0); opacity:1; }
+  .quote-info{ font-size:0.92rem; color:var(--ink-dim); }
+  .quote-info b{ color:var(--white); font-size:1.15rem; }
+  .quote-info .quote-total{ color:var(--blue-bright); font-weight:700; font-size:1.3rem; }
+  .quote-actions{ display:flex; gap:10px; align-items:center; }
+  .btn-clear{ background:none; border:1px solid var(--panel-line); color:var(--ink-dim); padding:11px 16px; border-radius:4px; font-size:0.85rem; cursor:pointer; }
+
+  /* ---------- Contact ---------- */
+  .contact{ background:var(--bg-soft); border-top:1px solid var(--panel-line); border-bottom:1px solid var(--panel-line); }
+  .contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center; padding:64px 0; }
+  .contact h2{ font-size:clamp(1.7rem,3.4vw,2.2rem); color:var(--white); text-transform:uppercase; }
+  .contact p.tag{ color:var(--blue-bright); font-style:italic; margin-top:10px; font-size:1.02rem; }
+  .contact-info{ margin-top:24px; display:flex; flex-direction:column; gap:14px; }
+  .contact-info a, .contact-info div{ display:flex; align-items:center; gap:12px; color:var(--ink); font-size:0.96rem; }
+  .contact-info svg{ color:var(--blue); flex-shrink:0; }
+  .whatsapp-card{ background:var(--panel); border:1px solid var(--panel-line); border-radius:8px; padding:30px; text-align:center; }
+  .whatsapp-card h3{ color:var(--white); font-size:1.15rem; text-transform:uppercase; }
+  .whatsapp-card p{ color:var(--ink-dim); margin:10px 0 20px; font-size:0.9rem; }
+  .btn-whatsapp{ background:#25D366; color:#04220f; padding:14px 22px; border-radius:4px; font-weight:700; display:inline-flex; align-items:center; gap:10px; font-size:0.96rem; }
+
+  /* ---------- Floating whatsapp ---------- */
+  .float-wa{
+    position:fixed; right:20px; bottom:20px; z-index:70; background:#25D366; color:#04220f;
+    width:56px; height:56px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 24px rgba(0,0,0,0.4); transition:transform .2s;
+  }
+  .float-wa:hover{ transform:scale(1.08); }
+
+  footer{ padding:26px 0; }
+  .footer-row{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; color:var(--ink-dim); font-size:0.8rem; }
+  .footer-row b{ color:var(--ink); }
+
+  @media (max-width:900px){
+    .hero-grid{ grid-template-columns:1fr; }
+    .hero-visual{ order:-1; }
+    .strip-row{ grid-template-columns:repeat(2,1fr); }
+    .strip-item:nth-child(3){ border-left:none; }
+    .strip-item{ border-left:none; justify-content:flex-start; padding:8px; }
+    .cards, .cards-3{ grid-template-columns:1fr 1fr; }
+    .contact-grid{ grid-template-columns:1fr; padding:46px 0; }
+    .nav{ display:none; }
+    .menu-btn{ display:inline-block; }
+    .section-head{ flex-direction:column; align-items:flex-start; }
+    .quote-bar{ bottom:8px; padding:14px 16px; }
+  }
+  @media (max-width:560px){
+    .cards, .cards-3{ grid-template-columns:1fr 1fr; }
+    .footer-row{ flex-direction:column; align-items:flex-start; }
+    .quote-actions{ width:100%; justify-content:space-between; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-row">
+    <div class="brand">
+      <img src="assets/logo.jpg" alt="Logo Car Detailing El Patuleco">
+      <div class="brand-word">Car Detailing<b>El Patuleco</b></div>
+    </div>
+    <nav class="nav">
+      <a href="#servicios">Servicios</a>
+      <a href="#contacto">Ubicación</a>
+      <a href="https://wa.me/5491171464367" class="cta-small">WhatsApp</a>
+    </nav>
+    <button class="menu-btn" onclick="document.querySelector('.nav').style.display='flex'">☰</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="kicker">Más que un lavado, es cuidar lo que te mueve.</p>
+      <h1>Tu auto<span>en su mejor versión</span></h1>
+      <p class="hero-sub">Detailing profesional en Del Viso: elegí los servicios que necesitás, mirá el total al instante y reservá tu turno por WhatsApp en un toque.</p>
+      <p class="hero-tags">LIMPIEZA · ESTÉTICA · PROTECCIÓN · PERFORMANCE</p>
+      <div class="hero-ctas">
+        <button class="btn-primary" onclick="document.getElementById('servicios').scrollIntoView({behavior:'smooth'})">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2Z"/></svg>
+          Armar mi presupuesto
+        </button>
+        <a href="https://wa.me/5491171464367" class="btn-ghost">Escribir directo</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img src="assets/hero-car.jpg" alt="VW GTI recién detallado, brillante">
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="wrap strip-row">
+    <div class="strip-item"><b>💎 Calidad</b></div>
+    <div class="strip-item"><b>🛡️ Protección</b></div>
+    <div class="strip-item"><b>✨ Brillo</b></div>
+    <div class="strip-item"><b>⚙️ Confianza</b></div>
+  </div>
+</div>
+
+<section class="section" id="servicios">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">NUESTROS SERVICIOS</p>
+        <h2>Elegí y armá tu combo</h2>
+        <p>Tocá una o más tarjetas para sumarlas a tu presupuesto. El total se calcula solo.</p>
+      </div>
+      <div class="hint"><b>Tip:</b> podés combinar servicios, por ejemplo Lavado Premium + Pulido de Ópticas.</div>
+    </div>
+
+    <div class="cards" id="cardsRow1"></div>
+    <div class="cards cards-3" id="cardsRow2"></div>
+
+    <div class="quote-bar" id="quoteBar">
+      <div class="quote-info">
+        <span id="quoteCount">0 servicios seleccionados</span><br>
+        Total estimado: <span class="quote-total" id="quoteTotal">$0</span>
+      </div>
+      <div class="quote-actions">
+        <button class="btn-clear" onclick="clearSelection()">Vaciar</button>
+        <a class="btn-whatsapp" id="quoteWaBtn" href="#" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2Z"/></svg>
+          Reservar por WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contacto">
+  <div class="wrap contact-grid">
+    <div>
+      <h2>Visitanos o escribinos</h2>
+      <p class="tag">Tu auto, nuestra pasión.</p>
+      <div class="contact-info">
+        <div>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>San Cayetano 2518, Del Viso, Pilar</span>
+        </div>
+        <a href="https://wa.me/5491171464367">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.9 9.9 0 004.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2Z"/></svg>
+          <span>11 7146-4367</span>
+        </a>
+      </div>
+    </div>
+    <div class="whatsapp-card">
+      <h3>Reservá tu turno</h3>
+      <p>Contanos qué modelo tenés y qué servicio necesitás, te respondemos por WhatsApp.</p>
+      <a href="https://wa.me/5491171464367?text=Hola!%20Quiero%20consultar%20por%20un%20turno%20para%20mi%20auto" class="btn-whatsapp">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2Z"/></svg>
+        Escribir por WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-row">
+    <span><b>Car Detailing El Patuleco</b> — San Cayetano 2518, Del Viso, Pilar</span>
+    <span>© 2026 El Patuleco. Todos los derechos reservados.</span>
+  </div>
+</footer>
+
+<a class="float-wa" href="https://wa.me/5491171464367" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2Z"/></svg>
+</a>
+
+<script>
+  const SERVICES = [
+    { id:'normal',    name:'Lavado Normal',              price:25000,  label:'Desde',        img:'assets/card-normal.jpg',   row:1 },
+    { id:'premium',   name:'Lavado Premium',             price:50000,  label:'Desde',        img:'assets/card-premium.jpg',  row:1 },
+    { id:'interior',  name:'Limpieza Interior Premium',  price:130000, label:'Desde',        img:'assets/card-interior.jpg', row:1 },
+    { id:'preventa',  name:'Lavado Pre Venta',           price:300000, label:'Desde',        img:'assets/card-preventa.jpg', row:1 },
+    { id:'motor',     name:'Lavado de Motor',            price:45000,  label:'Desde',        img:'assets/card-motor.jpg',    row:2 },
+    { id:'chasis',    name:'Lavado de Chasis',           price:60000,  label:'Desde',        img:'assets/card-chasis.jpg',   row:2 },
+    { id:'opticas',   name:'Pulido de Ópticas',          price:80000,  label:'Precio único', img:'assets/card-opticas.jpg',  row:2 },
+  ];
+
+  const selected = new Set();
+  const row1 = document.getElementById('cardsRow1');
+  const row2 = document.getElementById('cardsRow2');
+
+  function fmt(n){ return '$' + n.toLocaleString('es-AR'); }
+
+  SERVICES.forEach(s=>{
+    const el = document.createElement('div');
+    el.className = 'card';
+    el.dataset.id = s.id;
+    el.innerHTML = `
+      <img src="${s.img}" alt="${s.name}, ${s.label} ${fmt(s.price)}" loading="lazy">
+      <div class="card-check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <div class="card-tap">TOCÁ PARA AGREGAR</div>
+    `;
+    el.addEventListener('click', ()=> toggleCard(s.id, el));
+    (s.row===1? row1 : row2).appendChild(el);
+  });
+
+  function toggleCard(id, el){
+    if(selected.has(id)){ selected.delete(id); el.classList.remove('selected'); }
+    else{ selected.add(id); el.classList.add('selected'); }
+    updateQuoteBar();
+  }
+
+  function clearSelection(){
+    selected.clear();
+    document.querySelectorAll('.card.selected').forEach(c=>c.classList.remove('selected'));
+    updateQuoteBar();
+  }
+
+  function updateQuoteBar(){
+    const bar = document.getElementById('quoteBar');
+    const count = selected.size;
+    const items = SERVICES.filter(s=>selected.has(s.id));
+    const total = items.reduce((sum,s)=> sum + s.price, 0);
+
+    document.getElementById('quoteCount').textContent = count === 0
+      ? '0 servicios seleccionados'
+      : `${count} servicio${count>1?'s':''} seleccionado${count>1?'s':''}`;
+    document.getElementById('quoteTotal').textContent = fmt(total) + (items.some(s=>s.label==='Desde') ? ' aprox.' : '');
+
+    bar.classList.toggle('show', count > 0);
+
+    if(count > 0){
+      const lines = items.map(s => `- ${s.name} (${s.label.toLowerCase()} ${fmt(s.price)})`).join('%0A');
+      const msg = `Hola! Quiero reservar un turno para:%0A${lines}%0A%0ATotal estimado: ${fmt(total)}`;
+      document.getElementById('quoteWaBtn').href = `https://wa.me/5491171464367?text=${msg}`;
+    }
+  }
+</script>
+
+</body>
+</html>
